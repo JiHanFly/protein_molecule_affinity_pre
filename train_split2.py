@@ -28,6 +28,9 @@ def trainset_split(train_data, split_plot):
 
     # 遍历train_data, 根据split_plot中的分割点对数据分层
     for i in range(0, len(train_data)):
+        #print(train_data[i][0])
+        #print(type(train_data[i][0]))
+
         # 最小的一组，第1层
         if train_data[i][0] <= split_plot[0]:
             sub_train_data_array[0].append(train_data[i])
@@ -91,9 +94,9 @@ def train_model_for_every_sub_trainset(sub_train_data_array):
     train_models_name = []
     for i in range(0,len(sub_train_data_array)):
         # 取其中一层数据
-        print("模型" + str(i)+"训练开始")
-        train = sub_train_data_array[i]
 
+        train = sub_train_data_array[i]
+        print("模型" + str(i) + "训练开始," + "该训练数据集个数为" + str(len(train)))
         #train = pd.DataFrame(train)
 
         # 划分X，y
